@@ -12,7 +12,7 @@ module.exports = {
        //const toUser = interaction.user.username;
        //this is a new comment
 
-        await interaction.reply(`Starting trade... thank you ${interaction.user.username}`);
+        await interaction.reply({content: `Starting trade... thank you ${interaction.user.username}`, ephemeral: true});
 
     },
 };

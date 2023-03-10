@@ -9,14 +9,14 @@ module.exports = {
 		// interaction.member is the GuildMember object, which represents the user in the specific guild
         if (interaction.user.username == "Dusty(BlueBidyaGame)")
         {
-            await interaction.reply(`The user who ran this command was ${interaction.user.username}. Hello Dusty. I look forward to tracking packages for you.`);
+            await interaction.reply({content: `The user who ran this command was ${interaction.user.username}. Hello Dusty. I look forward to tracking packages for you.`, ephemeral: true});
         }
         else if (interaction.user.username == "damnablebear")
         {
-            await interaction.reply(`Hello Ryan. Why are you making me do all this work for free?`);
+            await interaction.reply({content: `Hello Ryan. Why are you making me do all this work for free?`, ephemeral: true});
         }
         else{
-            await interaction.reply(`This command was run by ${interaction.user.username}, who joined on ${interaction.member.joinedAt}.`);
+            await interaction.reply({content: `This command was run by ${interaction.user.username}, who joined on ${interaction.member.joinedAt}.`, ephemeral: true});
         }
 	},
 };

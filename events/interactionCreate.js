@@ -21,7 +21,6 @@ module.exports = {
         try
         {
             await command.execute(interaction, interaction.client);
-            await interaction.reply({ephemeral: true});
         } catch (error)
         {
             console.error(`Error executing ${interaction.commandName}`);
