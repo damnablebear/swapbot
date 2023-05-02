@@ -13,8 +13,8 @@ const data = new SlashCommandBuilder()
     //this lets you set a channel option
     .addChannelOption(option =>
         option.setName('channel')
-            .setDescription('The channel to echo into')
-            .addChannelTypes(ChannelType.GuildText))
+            .setDescription('The channel to echo into'))
+            //.addChannelTypes(ChannelType.GuildText))
     //this lets you set a boolean option based on the option you pass in
     .addBooleanOption(option =>
         option.setName('ephemeral')
