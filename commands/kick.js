@@ -1,4 +1,3 @@
-/* 
 const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 
 module.exports = {
@@ -22,4 +21,3 @@ module.exports = {
 
 /* You can require the user to have all of multiple permissions by merging them with the | bitwise OR operator (for example PermissionFlagsBits.BanMembers | PermissionFlagsBits.KickMembers). 
 You cannot require a subset of multiple permissions. Discord evaluates against the combined permission bitfield! */
-
