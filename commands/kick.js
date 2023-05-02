@@ -11,7 +11,12 @@ module.exports = {
                 .setRequired(true))
         .setDefaultMemberPermissions(PermissionFlagsBits.KickMembers)
         //by default, globally-deployed commands are available for use in DMs, but the next line can be used to disable this. commands that are only in specific guilds cannot be used in DMs
-        .setDMPermission(false)
+        .setDMPermission(false),
+
+    async execute(interaction)
+    {
+        console.log("the member has been kicked")
+    }
 };
 
 /* You can require the user to have all of multiple permissions by merging them with the | bitwise OR operator (for example PermissionFlagsBits.BanMembers | PermissionFlagsBits.KickMembers). 

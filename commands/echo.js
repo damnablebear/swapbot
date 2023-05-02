@@ -20,8 +20,8 @@ data: new SlashCommandBuilder()
     //this lets you set a boolean option based on the option you pass in
     .addBooleanOption(option =>
         option.setName('ephemeral')
-            .setDescription('Whether or not the echo should be ephemeral'))
-    };
+            .setDescription('Whether or not the echo should be ephemeral')),
+    
 
             //more information about potential options is available in the SlashCommandBuilder documentation
             //string, integer, number, and boolean are all accepted as types
@@ -62,11 +62,12 @@ data: new SlashCommandBuilder()
                 ));
                 
                 you can also return options with getString(), and this still works if you've set up options as opposed to free-entry
-                
-                async execute(interaction) {
-		        const category = interaction.options.getString('category');
-                }
                 */
+                async execute(interaction) {
+		        const category = interaction.options.getString('category')
+                }
+            };
+                
 
         //Subcommand and Subcommandgroup options let you have branching paths of subsequent options for commands
                     //Subcommands are available with .addSubcommand()
