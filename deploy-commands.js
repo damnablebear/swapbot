@@ -32,3 +32,13 @@ const rest = new REST({ version: '10' }).setToken(token);
 		console.error(error);
 	}
 })();
+
+
+rest.delete(Routes.applicationGuildCommand(clientId, guildId, '1077344956315869304'))
+	.then(() => console.log('Successfully deleted guild command'))
+	.catch(console.error);
+
+// for global commands
+//rest.delete(Routes.applicationCommand(clientId, '1077344956315869304'))
+	//.then(() => console.log('Successfully deleted application command'))
+	//.catch(console.error);
