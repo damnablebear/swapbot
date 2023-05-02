@@ -50,5 +50,5 @@ module.exports = {
             await interaction.reply(`Banning ${target.username} for reason: ${reason}`);
             //if the user is still in the guild where this command is run, you can also use .getMember('target') to get their GuildMember object
             await interaction.guild.members.ban(target);
-        },
+        }
 };
