@@ -1,3 +1,4 @@
+/*
 const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
@@ -15,3 +16,4 @@ module.exports = {
 		// respond to the complete slash command
 	},
 };
+*/
