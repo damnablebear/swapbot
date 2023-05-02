@@ -1,4 +1,4 @@
-/* const { SlashCommandBuilder } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
 
 module.exports = {
 
@@ -62,7 +62,7 @@ data: new SlashCommandBuilder()
                 ));
                 
                 you can also return options with getString(), and this still works if you've set up options as opposed to free-entry
-                
+                */
                 async execute(interaction) {
 		        const category = interaction.options.getString('category')
                 }
