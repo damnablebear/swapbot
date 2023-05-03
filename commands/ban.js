@@ -16,10 +16,12 @@ module.exports = {
         .addStringOption(option =>
             option
                 .setName('reason')
-                .setDescription('The reason for banning'))
+                .setDescription('The reason for banning')),
 
-        //you CANNOT set permissions while subcommands exist - you need multiple commands if you want to make different permission levels
-        .addSubcommand(subcommand =>
+        //you can set permissions while subcommands exist but you cannot set them within each subcommand - you need multiple commands if you want to make different permission levels
+        //you ALSO cannot have options AND subcommands - if you have subcommands, you must place your options within them
+        
+        /*.addSubcommand(subcommand =>
             subcommand
                 .setName('user')
                 .setDescription('Info about a user')
