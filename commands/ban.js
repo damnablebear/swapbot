@@ -4,6 +4,9 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('ban')
         .setDescription('Select a member and ban them.')
+        .setDMPermission(false)
+        .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
+
         .addUserOption(option =>
             option
                 .setName('target')
@@ -14,10 +17,9 @@ module.exports = {
             option
                 .setName('reason')
                 .setDescription('The reason for banning'))
-        .setDMPermission(false)
-        .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
 
-        /*.addSubcommand(subcommand =>
+        //you CANNOT set permissions while subcommands exist - you need multiple commands if you want to make different permission levels
+        .addSubcommand(subcommand =>
             subcommand
                 .setName('user')
                 .setDescription('Info about a user')
@@ -26,10 +28,7 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('server')
-                .setDescription('Info about the server')),*/
-
-
-
+                .setDescription('Info about the server')),
 
     //values can be retrieved asynchronously
     async execute(interaction)
