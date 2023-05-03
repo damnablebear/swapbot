@@ -8,9 +8,9 @@ module.exports = {
             option
                 .setName('target')
                 .setDescription('The member to ban')
-                .setRequired(true)
+                .setRequired(true))
                 //this SlashCommandBuilder#setDefaultMemberPermissions() method sets the required permission that is needed to run this command. this will require the user to have that permission before they can use this
-                .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers))
+                .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
         .addSubcommand(subcommand =>
             subcommand
                 .setName('user')
@@ -25,8 +25,9 @@ module.exports = {
             option
                 .setName('reason')
                 .setDescription('The reason for banning')
-                .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
-                .setDMPermission(false)),
+                .setDMPermission(false))
+                .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
+
 
 
     //values can be retrieved asynchronously
