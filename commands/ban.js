@@ -4,7 +4,7 @@ module.exports = {
     data: new SlashCommandBuilder()
         .setName('ban')
         .setDescription('Select a member and ban them.')
-        .setDMPermission(false)
+        //.setDMPermission(false)
         //.setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
 
         .addUserOption(option =>
@@ -29,7 +29,7 @@ module.exports = {
             subcommand
                 .setName('server')
                 .setDescription('Info about the server'))
-                .addUserOption(option => option.setName('server').setDescription('The server')),
+                .addUserOption(option => option.setName('tarserver').setDescription('The server')),
 
     //values can be retrieved asynchronously
     async execute(interaction)
