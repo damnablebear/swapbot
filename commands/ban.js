@@ -94,6 +94,15 @@ module.exports = {
             content: `Are you sure you want to ban ${target} for reason: ${reason}?`,
             components: [row],
         });
+
+        const collectorFilter = i => i.user.id === interaction.user.id;
+
+        try{
+            const confirmation = await response.awaitMessageComponent({filter: collectorFilter, time: 60000})
+        }
+        catch (e) {
+            await response.editReply({ content: 'Confirmation not received within 60 seconds, cancelling', components: []});
+        }
         //if the user is still in the guild where this command is run, you can also use .getMember('target') to get their GuildMember object
         await interaction.guild.members.ban(target);
     }
