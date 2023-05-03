@@ -1,4 +1,4 @@
-const { SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { ButtonBuilder, ButtonStyle, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -40,6 +40,16 @@ module.exports = {
         const target = interaction.options.getUser('target');
         //reason isn't a required option, so the ?? below sets a default value in case the user doesn't supply a reason
         const reason = interaction.options.getString('reason') ?? 'No reason provided';
+
+        const confirm = new ButtonBuilder()
+        .setCustomId('confirm')
+        .setLabel('Confirm Ban')
+        .setStyle(ButtonStyle.Danger);
+
+        const cancel = new ButtonBuilder()
+        .setCustomId('cancel')
+        .setLabel('Cancel')
+        .setStyle(ButtonStyle.Secondary);
         //you can also retrieve subcommands' options. the subcommands in this example don't really make sense, but are here in case we want to know how to compare the subcommands' setup versus their retrieval
         /* if (interaction.options.getSubcommand() === 'user') {
              const user = interaction.options.getUser('target');
