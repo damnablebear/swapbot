@@ -9,7 +9,7 @@ module.exports = {
                 .setName('target')
                 .setDescription('The member to ban')
                 .setRequired(true))
-                //this SlashCommandBuilder#setDefaultMemberPermissions() method sets the required permission that is needed to run this command. this will require the user to have that permission before they can use this
+        //this SlashCommandBuilder#setDefaultMemberPermissions() method sets the required permission that is needed to run this command. this will require the user to have that permission before they can use this
         .addSubcommand(subcommand =>
             subcommand
                 .setName('user')
@@ -23,9 +23,9 @@ module.exports = {
         .addStringOption(option =>
             option
                 .setName('reason')
-                .setDescription('The reason for banning')
-                .setDMPermission(false)
-                .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)),
+                .setDescription('The reason for banning'))
+        .setDMPermission(false)
+        .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
 
 
 
