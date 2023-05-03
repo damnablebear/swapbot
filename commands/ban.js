@@ -97,8 +97,21 @@ module.exports = {
 
         const collectorFilter = i => i.user.id === interaction.user.id;
 
+        //below, we are waiting for a single interaction using the awaitMessageComponent option. it returns a promise that resolves when any interaction passes its filter (if one is provided) or throws if none are received before the timeout
+        //if none are received, remove/edit the components and notify the user
+        //all interactions require a response within 3 seconds, or else discord will treat them as failed
+        //below, we are setting this to wait 60 seconds before editing the message to show that we didn't receive a confirmation
+        //the filter: part ensures that we are only looking for a response from the user who initiated it
         try{
             const confirmation = await response.awaitMessageComponent({filter: collectorFilter, time: 60000})
+
+            //now we are checking which button is clicked and sending an interaction to discord based on the button
+            if (confirmation.customId === 'confirm') {
+                await interaction.guild.members.ban(target);
+                await confirmation.update({ content: `${target.username} has been banned for reason: ${reason}`, components: [] });
+            } else if (confirmation.customId === 'cancel') {
+                await confirmation.update({ content: 'Action cancelled', components: [] });
+            }
         }
         catch (e) {
             await response.editReply({ content: 'Confirmation not received within 60 seconds, cancelling', components: []});
