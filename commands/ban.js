@@ -28,7 +28,8 @@ module.exports = {
         .addSubcommand(subcommand =>
             subcommand
                 .setName('server')
-                .setDescription('Info about the server')),
+                .setDescription('Info about the server'))
+                .addUserOption(option => option.setName('server').setDescription('The server')),
 
     //values can be retrieved asynchronously
     async execute(interaction)
