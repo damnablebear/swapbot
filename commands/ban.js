@@ -23,13 +23,13 @@ module.exports = {
             subcommand
                 .setName('user')
                 .setDescription('Info about a user')
-                .addUserOption(option => option.setName('target').setDescription('The user')))
+                .addUserOption(option => option.setName('target').setDescription('The user'))),
 
-        .addSubcommand(subcommand =>
+        /*.addSubcommand(subcommand =>
             subcommand
                 .setName('server')
                 .setDescription('Info about the server'))
-                .addUserOption(option => option.setName('tarserver').setDescription('The server')),
+                .addUserOption(option => option.setName('tarserver').setDescription('The server')),*/
 
     //values can be retrieved asynchronously
     async execute(interaction)
