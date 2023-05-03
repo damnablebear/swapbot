@@ -15,18 +15,18 @@ module.exports = {
                 .setName('reason')
                 .setDescription('The reason for banning'))
         .setDMPermission(false)
-        .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers)
+        .setDefaultMemberPermissions(PermissionFlagsBits.BanMembers),
 
-        .addSubcommand(subcommand =>
+        /*.addSubcommand(subcommand =>
             subcommand
                 .setName('user')
                 .setDescription('Info about a user')
                 .addUserOption(option => option.setName('target').setDescription('The user')))
-                
+
         .addSubcommand(subcommand =>
             subcommand
                 .setName('server')
-                .setDescription('Info about the server')),
+                .setDescription('Info about the server')),*/
 
 
 
