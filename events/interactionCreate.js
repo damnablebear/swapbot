@@ -115,11 +115,13 @@ module.exports = {
             console.log("interaction is: " + interaction);
             console.log("interaction client is: " + interaction.client);
             console.log("interaction client commands is " + interaction.client.commands);
+            console.log("interaction component is " + interaction.component);
+            
             const command = interaction.client.commands.get(interaction.component);
 
             if (!command)
             {
-                console.error(`No command matching ${interaction.commandName} was found.`);
+                console.error(`No command matching ${interaction.component} was found.`);
                 return;
             }
 
