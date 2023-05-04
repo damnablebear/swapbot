@@ -111,11 +111,11 @@ module.exports = {
         }
         else if (interaction.isUserSelectMenu())
         {
+            console.log("we're in a user select menu interaction");
             console.log("interaction is: " + interaction);
             console.log("interaction client is: " + interaction.client);
             console.log("interaction client commands is " + interaction.client.commands);
-            console.log("interaction commandname is: " + interaction.commandName);
-            const command = interaction.client.commands.get(interaction.commandName);
+            const command = interaction.client.commands.get(interaction.component);
 
             if (!command)
             {
