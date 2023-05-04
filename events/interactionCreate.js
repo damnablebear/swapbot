@@ -87,27 +87,14 @@ module.exports = {
         }
         else if (interaction.isStringSelectMenu())
         {
+            console.log("we're in a user select menu interaction");
             console.log("interaction is: " + interaction);
-            console.log("interaction client is: " + interaction.client);
-            console.log("interaction client commands is " + interaction.client.commands);
-            console.log("interaction commandname is: " + interaction.commandName);
-            const command = interaction.client.commands.get(interaction.commandName);
+            console.log("interaction selected value is: " + interaction.values[0]);
 
-            if (!command)
-            {
-                console.error(`No command matching ${interaction.commandName} was found.`);
-                return;
-            }
-
-            try
-            {
-                console.log("we're awaiting the command execution");
-                await command.execute(interaction, interaction.client);
-            } catch (error)
-            {
-                console.error(`Error executing ${interaction.commandName}`);
-                console.error(error);
-            }
+            // check if the interaction is a userSelectMenu
+            const selectedValue = interaction.values[0]; // get the selected value
+            interaction.reply('this is a string select menu. the selected value is ' + selectedValue); // send an error message
+       
         }
         else if (interaction.isUserSelectMenu())
         {
@@ -117,7 +104,7 @@ module.exports = {
 
             // check if the interaction is a userSelectMenu
             const selectedValue = interaction.values[0]; // get the selected value
-            interaction.reply('this worked and aakash is low-key a genius. the selected value is ' + selectedValue); // send an error message
+            interaction.reply('this is a user select menu. the selected value is ' + selectedValue); // send an error message
         }
         else
         {
