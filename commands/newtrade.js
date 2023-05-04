@@ -12,7 +12,7 @@ module.exports = {
        //const toUser = interaction.user.username;
        //this is a new comment
        const userSelect = new UserSelectMenuBuilder()
-       .setCustomId('users')
+       .setCustomId('newtrade')
        .setPlaceholder('Select a user to trade with.')
        .setMinValues(1)
        .setMaxValues(1);
