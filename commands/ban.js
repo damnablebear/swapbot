@@ -90,7 +90,7 @@ module.exports = {
 */
 
         //after changing the content above to utilize the action row, we're instead prompting the user with a confirmation question, and presenting the contents of the row
-        await interaction.reply({
+        const response = await interaction.reply({
             content: `Are you sure you want to ban ${target} for reason: ${reason}?`,
             components: [row],
         });
