@@ -4,6 +4,7 @@ module.exports = {
     {
         if (!interaction.isChatInputCommand()) 
         {
+            console.log("we're getting in here because this isn't a chat input command");
             return;
         }
         
@@ -21,6 +22,7 @@ module.exports = {
 
         try
         {
+            console.log("we're awaiting the command execution");
             await command.execute(interaction, interaction.client);
         } catch (error)
         {
