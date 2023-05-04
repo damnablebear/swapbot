@@ -1,4 +1,4 @@
-const { SlashCommandBuilder } = require('discord.js');
+const {SlashCommandBuilder, ActionRowBuilder, UserSelectMenuBuilder} = require('discord.js');
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -11,8 +11,19 @@ module.exports = {
         //const fromUser = interaction.user.username;
        //const toUser = interaction.user.username;
        //this is a new comment
+       const userSelect = new UserSelectMenuBuilder()
+       .setCustomId('users')
+       .setPlaceholder('Select a user to trade with.')
+       .setMinValues(1)
+       .setMaxValues(1);
 
-        await interaction.reply({content: `Starting trade... thank you ${interaction.user.username}`, ephemeral: true});
+   const row1 = new ActionRowBuilder()
+       .addComponents(userSelect);
+
+   await interaction.reply({
+       content: "Select the user you'd like to trade with:",
+       components: [row1],
+   });
 
     },
 };
