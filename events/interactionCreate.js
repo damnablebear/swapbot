@@ -16,7 +16,7 @@ module.exports = {
         {
             try
             {
-                await command.autoComplete(interaction);
+                await command.autocomplete(interaction);
             } catch (error)
             {
                 console.error(error);
