@@ -78,7 +78,8 @@ module.exports = {
         {
             console.log("we're in a user select menu interaction");
             console.log("interaction selected value is: " + interaction.values[0]);
-            console.log(interaction.client.users.fetch(interaction.values[0]))
+            //console.log(interaction.client.users.fetch(interaction.values[0]))
+            console.log(interaction.guild.members.cache.get(interaction.values[0]));
             if (interaction.customId === 'newtrade')
             {
                 const selectedMember = interaction.values[0]; // get the selected value
