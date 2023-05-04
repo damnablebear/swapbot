@@ -94,7 +94,13 @@ module.exports = {
             // check if the interaction is a userSelectMenu
             const selectedValue = interaction.values[0]; // get the selected value
             interaction.reply('this is a string select menu. the selected value is ' + selectedValue); // send an error message
-       
+
+            if (interaction.customId === 'starter')
+            {
+                const selection = interaction.values[0];
+                await reply(`${user} has selected ${selection}!`);
+            }
+
         }
         else if (interaction.isUserSelectMenu())
         {
