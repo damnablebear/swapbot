@@ -1,7 +1,10 @@
 module.exports = {
     name: 'interactionCreate',
+    
     async execute(interaction)
     {
+        const client = new Client({ intents: [GatewayIntentBits.Guilds]});
+
         /* if (!interaction.isChatInputCommand()) 
          {
              console.log("we're getting in here because this isn't a chat input command");
@@ -117,9 +120,9 @@ module.exports = {
                 const User = client.users.cache.get(selectedMember);
                 if (User)
                 {
-                    const username = User.username
+                    const tradeUsername = User.username
+                    interaction.reply('Starting trade with ' + tradeUsername + '. Your trade ID is: EMPTY'); // send an error message
                 }
-                interaction.reply('Starting trade with ' + username + '. Your trade ID is: EMPTY'); // send an error message
             }
             // check if the interaction is a userSelectMenu
             else
