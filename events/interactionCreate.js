@@ -85,8 +85,14 @@ module.exports = {
                 const selectedMember = interaction.values[0]; // get the selected value
                 const memberUserName = await interaction.guild.members.cache.get(interaction.values[0]);
                 //need to figure out how to pull in client object here
-
-                interaction.reply('Starting trade with ' + memberUserName.nickname + '. Your trade ID is: EMPTY'); // send an error message
+                if (memberUserName.nickname != interaction.client.users.fetch(interaction.values[0]))
+                {
+                    interaction.reply('Starting trade with ' + memberUserName.nickname + '. Your trade ID is: EMPTY'); 
+                }
+                else
+                {
+                    interaction.reply('Starting trade with ' + interaction.client.users.fetch(interaction.values[0]).username + '. Your trade ID is: EMPTY');
+                }
             }
             // check if the interaction is a userSelectMenu
             else
