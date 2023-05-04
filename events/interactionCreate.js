@@ -115,8 +115,7 @@ module.exports = {
             {
                 const selectedMember = interaction.users[0]; // get the selected value
                 interaction.ephemeral = true;
-                const tradeUsername = interaction.options.getUser(selectedMember);
-                interaction.reply('Starting trade with ' + tradeUsername + '. Your trade ID is: EMPTY'); // send an error message
+                interaction.reply('Starting trade with ' + '@' + selectedMember + '. Your trade ID is: EMPTY'); // send an error message
             }
             // check if the interaction is a userSelectMenu
             else
