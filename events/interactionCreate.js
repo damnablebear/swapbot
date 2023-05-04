@@ -3,36 +3,6 @@ module.exports = {
 
     async execute(interaction)
     {
-        /* if (!interaction.isChatInputCommand()) 
-         {
-             console.log("we're getting in here because this isn't a chat input command");
-             return;
-         }
- 
-         console.log("interaction is: " + interaction);
-         console.log("interaction client is: " + interaction.client);
-         console.log("interaction client commands is " + interaction.client.commands);
-         console.log("interaction commandname is: " + interaction.commandName);
-         const command = interaction.client.commands.get(interaction.commandName);
- 
-         if (!command)
-         {
-             console.error(`No command matching ${interaction.commandName} was found.`);
-             return;
-         }
- 
-         try
-         {
-             console.log("we're awaiting the command execution");
-             await command.execute(interaction, interaction.client);
-         } catch (error)
-         {
-             console.error(`Error executing ${interaction.commandName}`);
-             console.error(error);
-         }*/
-
-
-
         if (interaction.isAutocomplete())
         {
             console.log("we're in the autocomplete block");
@@ -108,11 +78,13 @@ module.exports = {
         {
             console.log("we're in a user select menu interaction");
             console.log("interaction selected value is: " + interaction.values[0]);
-
-
+            console.log(interaction.client.users)
             if (interaction.customId === 'newtrade')
             {
                 const selectedMember = interaction.values[0]; // get the selected value
+
+                //need to figure out how to pull in client object here
+                
                 interaction.reply('Starting trade with ' + selectedMember + '. Your trade ID is: EMPTY'); // send an error message
             }
             // check if the interaction is a userSelectMenu

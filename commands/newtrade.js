@@ -27,3 +27,9 @@ module.exports = {
 
     },
 };
+
+
+//user sends command
+//async fires with prompt
+//user enters/answers prompt
+//send response
