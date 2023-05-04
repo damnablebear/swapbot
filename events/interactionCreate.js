@@ -107,16 +107,13 @@ module.exports = {
         else if (interaction.isUserSelectMenu())
         {
             console.log("we're in a user select menu interaction");
-            console.log("interaction is: " + interaction);
             console.log("interaction selected value is: " + interaction.values[0]);
 
 
             if (interaction.customId === 'newtrade')
             {
                 const selectedMember = interaction.values[0]; // get the selected value
-                interaction.ephemeral = true;
-                const tradeUsername = interaction.options.getUser(selectedMember);
-                interaction.reply('Starting trade with ' + tradeUsername + '. Your trade ID is: EMPTY'); // send an error message
+                interaction.reply('Starting trade with ' + selectedMember + '. Your trade ID is: EMPTY'); // send an error message
             }
             // check if the interaction is a userSelectMenu
             else
