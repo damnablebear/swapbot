@@ -2,7 +2,7 @@ module.exports = {
     name: 'interactionCreate',
     async execute(interaction)
     {
-        if (interaction.isChatInputCommand() || interaction.isAutocomplete()) 
+        if (interaction.isChatInputCommand()) 
         {
             const command = interaction.client.commands.get(interaction.commandName);
 
@@ -11,9 +11,12 @@ module.exports = {
                 console.error(`No command matching ${interaction.commandName} was found.`);
                 return;
             }
+        }
+        else if (interaction.isAutocomplete())
+        {
             try
             {
-                await command.autocomplete(interaction);
+                await command.autoComplete(interaction);
             } catch (error)
             {
                 console.error(error);
@@ -21,11 +24,11 @@ module.exports = {
         }
         else if (interaction.isButton())
         {
-//respond to button
+            //respond to button
         }
         else if (interaction.isStringSelectMenu())
         {
-//respond to string select menu
+            //respond to string select menu
         }
         else
         {
