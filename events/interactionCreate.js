@@ -79,14 +79,14 @@ module.exports = {
             console.log("we're in a user select menu interaction");
             console.log("interaction selected value is: " + interaction.values[0]);
             //console.log(interaction.client.users.fetch(interaction.values[0]))
-            console.log(interaction.guild.members.cache.get(interaction.values[0]));
+            //console.log(interaction.guild.members.cache.get(interaction.values[0]));
             if (interaction.customId === 'newtrade')
             {
                 const selectedMember = interaction.values[0]; // get the selected value
-                const memberUserName = await interaction.client.users.fetch(interaction.values[0]);
+                const memberUserName = await interaction.guild.members.cache.get(interaction.values[0]);
                 //need to figure out how to pull in client object here
 
-                interaction.reply('Starting trade with ' + memberUserName.username + '. Your trade ID is: EMPTY'); // send an error message
+                interaction.reply('Starting trade with ' + memberUserName.nickname + '. Your trade ID is: EMPTY'); // send an error message
             }
             // check if the interaction is a userSelectMenu
             else
