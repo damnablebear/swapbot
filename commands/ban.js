@@ -118,6 +118,5 @@ module.exports = {
             await response.edit({ content: 'Confirmation not received within 60 seconds, cancelling', components: []});
         }
         //if the user is still in the guild where this command is run, you can also use .getMember('target') to get their GuildMember object
-        await interaction.guild.members.ban(target);
     }
 };
