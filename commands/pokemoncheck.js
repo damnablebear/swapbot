@@ -17,15 +17,15 @@ async execute(interaction) {
         new StringSelectMenuOptionBuilder()
             .setLabel('Machop')
             .setDescription('A fighting pokemon who gets buff and swole with each successive evolution.')
-            .setValue('machop'),
+            .setValue('Machop'),
             new StringSelectMenuOptionBuilder()
             .setLabel('Gloom')
             .setDescription('A beautifully-ugly pokemon who gets stinky and chonk with each successive evolution.')
-            .setValue('gloom'),
+            .setValue('Gloom'),
             new StringSelectMenuOptionBuilder()
             .setLabel('Combee')
             .setDescription('A buzzy bee pokemon who gets regal and spicy with each successive evolution.')
-            .setValue('combee'),
+            .setValue('Combee'),
     );
 
     const row = new ActionRowBuilder()
