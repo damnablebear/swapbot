@@ -117,16 +117,7 @@ module.exports = {
 
             // check if the interaction is a userSelectMenu
             const selectedValue = interaction.values[0]; // get the selected value
-            if (selectedValue === 'option1')
-            {
-                interaction.reply('You selected option 1'); // send a reply message
-            } else if (selectedValue === 'option2')
-            {
-                interaction.reply('You selected option 2'); // send a reply message
-            } else
-            {
-                interaction.reply('Invalid option selected'); // send an error message
-            }
+            interaction.reply('this worked and aakash is low-key a genius. the selected value is ' + selectedValue); // send an error message
         }
         else
         {
