@@ -113,26 +113,19 @@ module.exports = {
         {
             console.log("we're in a user select menu interaction");
             console.log("interaction is: " + interaction);
-            console.log("interaction client is: " + interaction.client);
-            console.log("interaction client commands is " + interaction.client.commands);
-            console.log("interaction component is " + interaction.component);
-            
-            const command = interaction.client.commands.get(interaction.component);
+            console.log("interaction selected value is: " + interaction.values[0]);
 
-            if (!command)
+            // check if the interaction is a userSelectMenu
+            const selectedValue = interaction.values[0]; // get the selected value
+            if (selectedValue === 'option1')
             {
-                console.error(`No command matching ${interaction.component} was found.`);
-                return;
-            }
-
-            try
+                interaction.reply('You selected option 1'); // send a reply message
+            } else if (selectedValue === 'option2')
             {
-                console.log("we're awaiting the command execution");
-                await command.execute(interaction, interaction.client);
-            } catch (error)
+                interaction.reply('You selected option 2'); // send a reply message
+            } else
             {
-                console.error(`Error executing ${interaction.commandName}`);
-                console.error(error);
+                interaction.reply('Invalid option selected'); // send an error message
             }
         }
         else
