@@ -91,6 +91,7 @@ module.exports = {
 
         //after changing the content above to utilize the action row, we're instead prompting the user with a confirmation question, and presenting the contents of the row
         const response = await interaction.reply({
+            ephemeral: true,
             content: `Are you sure you want to ban ${target} for reason: ${reason}?`,
             components: [row],
         });
@@ -103,7 +104,7 @@ module.exports = {
         //below, we are setting this to wait 60 seconds before editing the message to show that we didn't receive a confirmation
         //the filter: part ensures that we are only looking for a response from the user who initiated it
         try{
-            const confirmation = await response.awaitMessageComponent({filter: collectorFilter, time: 60000})
+            const confirmation = await response.awaitMessageComponent({filter: collectorFilter, time: 60000});
 
             //now we are checking which button is clicked and sending an interaction to discord based on the button
             if (confirmation.customId === 'confirm') {
@@ -114,7 +115,7 @@ module.exports = {
             }
         }
         catch (e) {
-            await response.editReply({ content: 'Confirmation not received within 60 seconds, cancelling', components: []});
+            await response.edit({ content: 'Confirmation not received within 60 seconds, cancelling', components: []});
         }
         //if the user is still in the guild where this command is run, you can also use .getMember('target') to get their GuildMember object
         await interaction.guild.members.ban(target);
