@@ -112,13 +112,16 @@ module.exports = {
 
             if (interaction.customId === 'newtrade')
             {
-                const selectedMember = interaction.members[0]; // get the selected value
+                const selectedMember = interaction.users[0]; // get the selected value
                 interaction.ephemeral = true;
-            interaction.reply('Starting trade with ' + selectedMember + '. Your trade ID is: EMPTY'); // send an error message
+                interaction.reply('Starting trade with ' + selectedMember + '. Your trade ID is: EMPTY'); // send an error message
             }
             // check if the interaction is a userSelectMenu
-            const selectedValue = interaction.values[0]; // get the selected value
-            interaction.reply('this is a user select menu. the selected value is ' + selectedValue); // send an error message
+            else
+            {
+                const selectedValue = interaction.values[0]; // get the selected value
+                interaction.reply('this is a user select menu. the selected value is ' + selectedValue); // send an error message
+            }
         }
         //catching Modals
         else if (interaction.isModalSubmit())
