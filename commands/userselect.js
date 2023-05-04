@@ -1,4 +1,4 @@
-const {StringSelectMenuBuilder, StringSelectMenuOptionBuilder, SlashCommandBuilder, ActionRowBuilder } = require('discord.js');
+const {StringSelectMenuBuilder, StringSelectMenuOptionBuilder, SlashCommandBuilder, ActionRowBuilder, UserSelectMenuBuilder} = require('discord.js');
 
 module.exports = {
 
