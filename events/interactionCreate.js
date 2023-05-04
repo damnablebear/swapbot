@@ -98,6 +98,7 @@ module.exports = {
             if (interaction.customId === 'starter')
             {
                 const selection = interaction.values[0];
+                const user = interaction.user;
                 interaction.reply(`${user} has selected ${selection}!`);
             }
 
