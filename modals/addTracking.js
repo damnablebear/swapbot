@@ -1,11 +1,9 @@
-//const { ActionRowBuilder, Events, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
-
-/* 
-
-idk what i'm doing here
+const { ActionRowBuilder, Events, ModalBuilder, TextInputBuilder, TextInputStyle } = require('discord.js');
 
 
-async execute(interaction) {
+
+
+
     const trackModal = new ModalBuilder()
         //this custom id is one that we can use to define all incoming interactions
         .setCustomId('trackingModal')
@@ -35,6 +33,5 @@ async execute(interaction) {
 
     // Show the modal to the user
     await interaction.showModal(trackModal);
-}
 
-*/
+

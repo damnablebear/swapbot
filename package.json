@@ -2,7 +2,7 @@
   "name": "swapbot",
   "version": "1.0.0",
   "description": "a discord bot for trading items via mail",
-  "main": "index.js",
+  "main": "src/index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

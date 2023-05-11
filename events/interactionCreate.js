@@ -3,6 +3,7 @@ module.exports = {
 
     async execute(interaction)
     {
+        console.log(interaction);
         if (interaction.isAutocomplete())
         {
             console.log("we're in the autocomplete block");
@@ -107,7 +108,7 @@ module.exports = {
         //catching Modals
         else if (interaction.isModalSubmit())
         {
-            /* maybe garbage idk
+           
             if (interaction.commandName === 'addTracking')
             {
                 const trackModal = new ModalBuilder()
@@ -131,7 +132,6 @@ module.exports = {
 
             }
 
-            */
         }
         else
         {
