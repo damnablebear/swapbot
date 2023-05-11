@@ -1,9 +1,8 @@
 const {SlashCommandBuilder, ActionRowBuilder, UserSelectMenuBuilder} = require('discord.js');
 
 module.exports = {
-    data: new SlashCommandBuilder()
-        .setName('newtrade')
-        .setDescription('Allows you to start a new trade with a user.'),
+        name: 'newtrade',
+        description: 'Allows you to start a new trade with a user.',
     async execute(interaction)
     {
         // interaction.user is the object representing the User who ran the command
