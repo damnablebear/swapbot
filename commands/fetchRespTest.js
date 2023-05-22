@@ -11,7 +11,7 @@ module.exports = {
         
             await interaction.reply({content: `Hi, how are you???????`, ephemeral: true});
             const message = await interaction.fetchReply();
-            console.log(message);
+            //console.log(message);
 
         
 	},

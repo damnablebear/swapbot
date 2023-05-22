@@ -31,7 +31,7 @@ for (const file of eventFiles)
         client.on(event.name, (...args) => event.execute(...args));
     }
 
-    console.log("filepath is: " + filePath);
+    //console.log("filepath is: " + filePath);
 }
 
 

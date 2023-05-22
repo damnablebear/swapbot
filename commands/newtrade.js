@@ -6,11 +6,6 @@ module.exports = {
         .setDescription('Allows you to start a new trade with a user.'),
     async execute(interaction)
     {
-        // interaction.user is the object representing the User who ran the command
-        // interaction.member is the GuildMember object, which represents the user in the specific guild
-        //const fromUser = interaction.user.username;
-        //const toUser = interaction.user.username;
-        //this is a new comment
         const userSelect = new UserSelectMenuBuilder()
             .setCustomId('newtrade')
             .setPlaceholder('Select a user to trade with.')
