@@ -81,29 +81,6 @@ module.exports = {
             console.log("interaction selected value is: " + interaction.values[0]);
             //console.log(interaction.client.users.fetch(interaction.values[0]))
             //console.log(interaction.guild.members.cache.get(interaction.values[0]));
-            if (interaction.customId === 'newtrade')
-            {
-                const selectedMember = interaction.values[0]; // get the selected value
-                //member username is coming from the guild's members cache, and pulling the user's displayname/nickname
-                const guildUserName = await interaction.guild.members.cache.get(interaction.values[0]);
-                const memberUserName = await interaction.client.users.fetch(interaction.values[0]);
-                //checking to see if the guild's members cache matches the person's discord-level username. if not, it prioritizes nickname
-                if (memberUserName.username != guildUserName.nickname)
-                {
-                    interaction.reply('Starting trade with ' + guildUserName.nickname + '. Your trade ID is: EMPTY'); 
-                }
-                else
-                {
-                    //if the nickname and the username are the same, just use that
-                    interaction.reply('Starting trade with ' + memberUserName.username + '. Your trade ID is: EMPTY');
-                }
-            }
-            // check if the interaction is a userSelectMenu
-            else
-            {
-                const selectedValue = interaction.values[0]; // get the selected value
-                interaction.reply('this is a user select menu. the selected value is ' + selectedValue); // send an error message
-            }
         }
         //catching Modals
         else if (interaction.isModalSubmit())
