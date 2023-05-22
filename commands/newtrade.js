@@ -29,14 +29,12 @@ module.exports = {
         const collectorFilter = i => i.user.id === interaction.user.id;
         const confirmation = await response.awaitMessageComponent({filter: collectorFilter, time: 60000});
 
-
         try{
 
             //now we are checking which button is clicked and sending an interaction to discord based on the button
             await confirmation.update({ content: `You have started a trade with ${confirmation.users.first().username}, and your trade ID is: TRADE ID`, components: [] });
         }
         catch (e) {
-            console.log(e)
             await response.edit({ content: 'User confirmation not received within 60 seconds, cancelling', components: []});
         }
 
