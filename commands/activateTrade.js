@@ -1,4 +1,6 @@
-const { ActionRowBuilder, ButtonBuilder, ButtonStyle, SlashCommandBuilder, PermissionFlagsBits } = require('discord.js');
+const { SlashCommandBuilder } = require('discord.js');
+
+//TO DO: search for other user by trade ID and DM them with confirmation
 
 module.exports = {
     data: new SlashCommandBuilder()
@@ -32,7 +34,7 @@ module.exports = {
         //after changing the content above to utilize the action row, we're instead prompting the user with a confirmation question, and presenting the contents of the row
         const response = await interaction.reply({
             ephemeral: true,
-            content: `Successfully started your side of trade #${tradeId}! The item you'll be sending is: ${itemDesc}`,
+            content: `Successfully confirmed your end of trade #${tradeId}! The item you'll be sending is: ${itemDesc}`,
         });
 
         
