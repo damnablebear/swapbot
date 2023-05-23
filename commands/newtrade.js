@@ -41,7 +41,7 @@ module.exports = {
             //if they've selected someone (basically this is just a truthy check), then we're going to DM that user, letting them know that the initiator of the command has... well, initiated a trade
             if (recipientUser)
             {
-                recipientUser.send(recipientUserID, `Hey if this works, send a message to ${initiatorUserName}`);
+                recipientUser.send(`${initiatorUserName} has initiated a trade with you, and the trade ID is TRADE ID`);
             }
             //then we're just going to output a message to the initiator, letting them know what their trade ID is, and telling them that they've opened a trade
             await confirmation.update({ content: `You have started a trade with ${confirmation.users.first().username}, and your trade ID is: TRADE ID`, components: [] });
