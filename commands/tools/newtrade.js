@@ -38,10 +38,19 @@ module.exports = {
             const recipientUserID = confirmation.users.first().id;
             const initiatorUserName = interaction.user.username;
 
+           /* const tag = await Tags.create({
+                name: interaction.options.getString('name'),
+                description: interaction.options.getString('description'),
+                username: initiatorUserName,
+            });
+
+            interaction.reply(`Tag ${tag.name} added.`); */
+
             //if they've selected someone (basically this is just a truthy check), then we're going to DM that user, letting them know that the initiator of the command has... well, initiated a trade
             if (recipientUser)
             {
-                recipientUser.send(`${initiatorUserName} has initiated a trade with you, and the trade ID is TRADE ID`);
+                //TO DO: Turn this line back on
+                //recipientUser.send(`${initiatorUserName} has initiated a trade with you, and the trade ID is TRADE ID`);
             }
             //then we're just going to output a message to the initiator, letting them know what their trade ID is, and telling them that they've opened a trade
             await confirmation.update({ content: `You have started a trade with ${confirmation.users.first().username}, and your trade ID is: TRADE ID`, components: [] });
@@ -49,6 +58,9 @@ module.exports = {
         //if there's an error in the catch, then we're debugging it, and we're giving a message back to the user that they didn't respond in 60 seconds' time
         catch (e)
         {
+            if (e.name === "SequelizeUniqueContraintError"){
+                return interaction.reply('That tag already exists')
+            }
             console.log(e)
             await response.edit({ content: 'User confirmation not received within 60 seconds, cancelling', components: [] });
         }

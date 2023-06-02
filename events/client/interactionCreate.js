@@ -1,9 +1,10 @@
+const { InteractionType } = require('discord.js');
+
 module.exports = {
     name: 'interactionCreate',
 
-    async execute(interaction)
+    async execute(interaction, client)
     {
-        console.log(interaction);
         if (interaction.isAutocomplete())
         {
             console.log("we're in the autocomplete block");
@@ -55,37 +56,86 @@ module.exports = {
         }
         else if (interaction.isButton())
         {
-            //
+            const { buttons } = client;
+            const { customId } = interaction;
+            const button = buttons.get(customId);
+            if (!button) return new Error("There is no code for this button!");
+
+            try
+            {
+                await button.execute(interaction, client);
+            }
+            catch (err)
+            {
+                console.error(err);
+            }
         }
         else if (interaction.isStringSelectMenu())
         {
-            console.log("we're in a user select menu interaction");
-            console.log("interaction is: " + interaction);
-            console.log("interaction selected value is: " + interaction.values[0]);
+            //console.log("we're in a string select menu interaction");
+            //console.log("interaction is: " + interaction);
+            //console.log("interaction selected value is: " + interaction.values[0]);
 
             // check if the interaction is a userSelectMenu
             const selectedValue = interaction.values[0]; // get the selected value
             //interaction.reply('this is a string select menu. the selected value is ' + selectedValue); // send an error message
 
-            if (interaction.customId === 'starter')
-            {
-                const selection = interaction.values[0];
-                const user = interaction.user;
-                interaction.reply(`${user} has selected ${selection}!`);
-            }
-
         }
         else if (interaction.isUserSelectMenu())
         {
             console.log("we're in a user select menu interaction");
-            console.log("interaction selected value is: " + interaction.values[0]);
-            //console.log(interaction.client.users.fetch(interaction.values[0]))
+            //console.log("interaction selected value is: " + interaction.values[0]);
             //console.log(interaction.guild.members.cache.get(interaction.values[0]));
+            /*if (interaction.customId === 'newtrade')
+            {
+                const selectedMember = interaction.values[0]; // get the selected value
+                console.log(`selected member is ${selectedMember}`)
+                //member username is coming from the guild's members cache, and pulling the user's displayname/nickname
+                const guildUserName = await interaction.guild.members.cache.get(interaction.values[0]);
+                const memberUserName = await interaction.client.users.fetch(interaction.values[0]);
+                console.log(`Member username is ${memberUserName.username} and guild username is ${guildUserName.nickname}`);
+                //checking to see if the guild's members cache matches the person's discord-level username. if not, it prioritizes nickname
+                if (memberUserName.username === guildUserName.nickname)
+                {
+                    interaction.reply({
+                        content: 'Starting trade with ' + guildUserName.nickname + '. Your trade ID is: EMPTY',
+                    ephemeral: true,
+                }); 
+                }
+                else
+                {
+                    //if the nickname and the username are the same, just use that
+                    interaction.reply({
+                        content: 'Beginning trade with ' + memberUserName.username + '. Your trade ID is: EMPTY',
+                        ephemeral: true,
+                    });
+                }
+            }
+            // check if the interaction is a userSelectMenu
+            else
+            {
+                const selectedValue = interaction.values[0]; // get the selected value
+                interaction.reply('this is a user select menu. the selected value is ' + selectedValue); // send an error message
+            }*/
         }
         //catching Modals
-        else if (interaction.isModalSubmit())
+        else if (interaction.type == InteractionType.ModalSubmit)
         {
-           
+
+            const { modals } = client;
+            const { customId } = interaction;
+            const modal = modals.get(customId);
+
+            if (!modal) return new Error("There is no code for this modal.");
+
+            try
+            {
+                await modal.execute(interaction, client);
+            } catch (error)
+            {
+                console.error(error);
+            }
+            /* maybe garbage idk
             if (interaction.commandName === 'addTracking')
             {
                 const trackModal = new ModalBuilder()
@@ -109,6 +159,7 @@ module.exports = {
 
             }
 
+            */
         }
         else
         {
